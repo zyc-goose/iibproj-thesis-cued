@@ -11,59 +11,80 @@
 
 %%% Background %%%
 \section{Background}
+\label{sec:intro-background}
+
+% filled-in handouts
+In the context of CUED teaching, a common way of delivering lectures is to prepare handouts with a number of intentional gaps and fill the missing contents in these gaps during the lectures. This method is especially popular for teaching Part IA and IB courses. Usually, the scanned PDF version of the filled-in handout will be uploaded to the Moodle (also called the Virtual Learning Environment) after every lecture is finished. \Cref{fig:intro-example-handouts} shows some example scans of filled-in handout pages\footnote{Image source: CUED Part IA Mathematics (2010)}.
+
+% latex slides
+Another common way of teaching CUED courses would be using fully digital presentation slides, usually typeset by \LaTeX ~and arranged in the landscape orientation. This approach is more common in teaching Part IIA and IIB courses and is especially popular in Division F. Examples of this kind of lecture slides\footnote{Image source: CUED Part IIB 4F8: Image Processing and Image Coding} are shown in \Cref{fig:intro-example-slides}.
+
+% panopto
+In the recent years, full lecture video recordings of major CUED Part IA and IB courses have been accessible to students online via the Panopto service. The service provides the lecture video playback service with aligned handout/slide projections. With this service, Part IA and IB students are able to revisit specific parts of the lectures, which relieves them of the pressure of taking notes and understanding hard topics during lectures.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}{.47\textwidth}
+        \includegraphics[width=\textwidth]{handout1.jpg}
+    \end{subfigure}%
+    \begin{subfigure}{.52\textwidth}
+        \includegraphics[width=\textwidth]{handout2.jpg}
+    \end{subfigure}
+    \caption{Examples of scanned handout pages with filled-in notes}
+    \label{fig:intro-example-handouts}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}{.49\textwidth}
+        \includegraphics[width=\textwidth]{slide1.jpg}
+    \end{subfigure}%
+    \begin{subfigure}{.49\textwidth}
+        \includegraphics[width=\textwidth]{slide2.jpg}
+    \end{subfigure}
+    \caption{Examples of lecture slides typeset by \LaTeX}
+    \label{fig:intro-example-slides}
+\end{figure}
 
 
+%%% Motivation %%%
+\section{Motivation}
 
-\begin{align}
-CIF: \hspace*{5mm}F_0^j(a) = \frac{1}{2\pi \iota} \oint_{\gamma} \frac{F_0^j(z)}{z - a} dz
-\end{align}
+% situation
+As mentioned in \Cref{sec:intro-background}, the Panopto service enables students to revisit parts of the lecture recordings, which has significantly enhanced their educational experience. A common situation for students is that they may have difficulties understanding specific parts in the handouts, such as the core concepts or some complicated equations, and they want to refer back to lecturers' explanations to these parts. However, in order to find the correct parts of the lecture recordings that they're actually interested in, students still need to search back and forth in these recordings before they eventually arrive at the desired parts.
 
-\nomenclature[z-cif]{$CIF$}{Cauchy's Integral Formula}                                % first letter Z is for Acronyms 
-\nomenclature[a-F]{$F$}{complex function}                                                   % first letter A is for Roman symbols
-\nomenclature[g-p]{$\pi$}{ $\simeq 3.14\ldots$}                                             % first letter G is for Greek Symbols
-\nomenclature[g-i]{$\iota$}{unit imaginary number $\sqrt{-1}$}                      % first letter G is for Greek Symbols
-\nomenclature[g-g]{$\gamma$}{a simply closed curve on a complex plane}  % first letter G is for Greek Symbols
-\nomenclature[x-i]{$\oint_\gamma$}{integration around a curve $\gamma$} % first letter X is for Other Symbols
-\nomenclature[r-j]{$j$}{superscript index}                                                       % first letter R is for superscripts
-\nomenclature[s-0]{$0$}{subscript index}                                                        % first letter S is for subscripts
+% ideal system
+Therefore, it would be ideal to have a system which automatically analyses the lecture data (handouts + recordings) and brings us directly to the correct parts of the recordings upon selecting specific parts in the handouts. Such a system will aid the students to locate the desired parts of the recordings with minimum effort, and will even further improve their overall educational experience. The idea behind such a system is also termed as `talking handouts', which is the title of this project.
+
+% reality
+Unfortunately, few work has been done in designing and implementing such a system so there are essentially no useful references for this project. However, it would still be interesting and worthwhile to try building a minimum working system to test the feasibility of this idea, starting from the simplest assumptions.
 
 
-%********************************** %Second Section  *************************************
-\section{Why do we use loren ipsum?} %Section - 1.2
+%%% Project Aim
+\section{Project Aim}
+
+% general aim
+This project aims to investigate the feasibility of the idea `talking handouts' by designing, implementing and evaluating a minimum working software system which automatically computes the alignment (or mappings) between the chunks of handouts and the segments of the corresponding lecture recordings. Here we use the word `chunk' to denote a block of meaningful information in the handouts, and use the word `segment' to denote an interval with a starting time and an ending time in the lecture recordings. The wording `chunk' and `segment' will be used throughout the report.
+
+% first subtask
+An important subtask of the project is to investigate methods of dividing the handouts into smaller chunks of information (at different scales) and extracting meaningful text from these chunks. A direct solution to this subtask is to use an OCR engine, which is adopted in the system design and further discussed in \textcolor{red}{these chapters}.
+
+% second subtask
+Another important subtask of the project is to investigate speech-recognition based algorithms of aligning chunks of handouts with segments of lecture recordings. `Speech-recognition based' means that the lecture recordings are first fed into a speech recogniser and we use the output of the recogniser as one of the inputs of the alignment algorithm (the other input is the chunks of extracted handout text). The final system uses a \texttt{diff}-based alignment algorithm which is discussed in detail in \textcolor{red}{these chapters}.
+
+% some assumptions
+It would be worth mentioning that the project will only focus on handouts with filled-in handwritten notes (discussed in the first paragraph of \Cref{sec:intro-background}), since handouts of this type are fundamental to the CUED teaching (especially for Part IA and IB) and they also contain handwritten information which is interesting to investigate. Also by the statement of `speech-recognition based' in the second subtask we have actually assumed implicitly that we will only be using the audio information of the lecture recordings and the video information will be abandoned for simplicity. To avoid confusion, the wording `lecture audio file' is used instead of `lecture recording' in the rest of the report.
 
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using `Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for `lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+%%% Report Structure %%%
+\section{Report Structure}
 
-%********************************** % Third Section  *************************************
-\section{Where does it come from?}  %Section - 1.3 
-\label{section1.3}
+\textcolor{red}{explain contents in different Chapters}
 
-\nomenclature[z-DEM]{DEM}{Discrete Element Method}
-\nomenclature[z-FEM]{FEM}{Finite Element Method}
-\nomenclature[z-PFEM]{PFEM}{Particle Finite Element Method}
-\nomenclature[z-FVM]{FVM}{Finite Volume Method}
-\nomenclature[z-BEM]{BEM}{Boundary Element Method}
-\nomenclature[z-MPM]{MPM}{Material Point Method}
-\nomenclature[z-LBM]{LBM}{Lattice Boltzmann Method}
-\nomenclature[z-MRT]{MRT}{Multi-Relaxation 
-Time}
-\nomenclature[z-RVE]{RVE}{Representative Elemental Volume}
-\nomenclature[z-GPU]{GPU}{Graphics Processing Unit}
-\nomenclature[z-SH]{SH}{Savage Hutter}
-\nomenclature[z-CFD]{CFD}{Computational Fluid Dynamics}
-\nomenclature[z-LES]{LES}{Large Eddy Simulation}
-\nomenclature[z-FLOP]{FLOP}{Floating Point Operations}
-\nomenclature[z-ALU]{ALU}{Arithmetic Logic Unit}
-\nomenclature[z-FPU]{FPU}{Floating Point Unit}
-\nomenclature[z-SM]{SM}{Streaming Multiprocessors}
-\nomenclature[z-PCI]{PCI}{Peripheral Component Interconnect}
-\nomenclature[z-CK]{CK}{Carman - Kozeny}
-\nomenclature[z-CD]{CD}{Contact Dynamics}
-\nomenclature[z-DNS]{DNS}{Direct Numerical Simulation}
-\nomenclature[z-EFG]{EFG}{Element-Free Galerkin}
-\nomenclature[z-PIC]{PIC}{Particle-in-cell}
-\nomenclature[z-USF]{USF}{Update Stress First}
-\nomenclature[z-USL]{USL}{Update Stress Last}
-\nomenclature[s-crit]{crit}{Critical state}
-\nomenclature[z-DKT]{DKT}{Draft Kiss Tumble}
-\nomenclature[z-PPC]{PPC}{Particles per cell}
+
+%% example nomenclatures
+% \nomenclature[z-DKT]{DKT}{Draft Kiss Tumble}
+% \nomenclature[z-PPC]{PPC}{Particles per cell}
+\nomenclature[z-CUED]{CUED}{Cambridge University Engineering Department}
+\nomenclature[z-VLE]{VLE}{Virtual Learning Environment}
+\nomenclature[z-OCR]{OCR}{Optical Character Recognition}
