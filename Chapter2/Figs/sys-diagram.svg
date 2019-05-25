@@ -1,0 +1,118 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <g>
+        <g latexdraw:type="text" id="id1381861321" fill="black" latexdraw:position="bl">
+            <text x="163.0" y="117.0">\large Handout</text>
+        </g>
+        <g latexdraw:type="text" id="id1595101763" fill="black" latexdraw:position="bl">
+            <text x="161.0" y="140.0">\large PDF File</text>
+        </g>
+        <g latexdraw:type="text" id="id933649749" fill="black" latexdraw:position="bl">
+            <text x="163.0" y="180.0">\large (input 1)</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id390868991">
+            <rect x="143.5" y="83.5" width="113.0" height="73.0"
+                latexdraw:borderPos="outer" stroke-width="7.0"
+                stroke="black" fill="none"/>
+            <rect x="143.5" y="83.5" width="113.0" height="73.0"
+                stroke="white" stroke-width="3.0" fill="none" latexdraw:type="dbleborders"/>
+        </g>
+        <g latexdraw:type="text" id="id717656222" fill="black" latexdraw:position="bl">
+            <text x="167.0" y="237.0">\large Lecture</text>
+        </g>
+        <g latexdraw:type="text" id="id515252017" fill="black" latexdraw:position="bl">
+            <text x="155.0" y="260.0">\large Audio File</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id1729804325">
+            <rect x="143.5" y="203.5" width="113.0" height="73.0"
+                latexdraw:borderPos="outer" stroke-width="7.0"
+                stroke="black" fill="none"/>
+            <rect x="143.5" y="203.5" width="113.0" height="73.0"
+                stroke="white" stroke-width="3.0" fill="none" latexdraw:type="dbleborders"/>
+        </g>
+        <g latexdraw:type="text" id="id1416162053" fill="black" latexdraw:position="bl">
+            <text x="163.0" y="300.0">\large (input 2)</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id2026333838">
+            <rect x="381.0" y="141.0" width="158.0" height="78.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none" rx="10.799999999999999"/>
+        </g>
+        <g latexdraw:type="text" id="id641556278" fill="black" latexdraw:position="bl">
+            <text x="418.0" y="196.0">\LARGE System</text>
+        </g>
+        <g latexdraw:type="joinedLines" id="id966213851">
+            <polyline
+                points="380.0,160.0 320.0,160.0 320.0,120.0 260.0,120.0 "
+                stroke-width="2.0" stroke="black" fill="none"
+                latexdraw:rotationAngle="0.0" marker-start="url(#arrow0-966213851)"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id1335553321">
+            <polyline
+                points="380.0,200.0 319.9249337838684,200.00862818947536 319.9249337838684,240.00862818947533 259.92493378386854,240.0086281894754 "
+                stroke-width="2.0" stroke="black" fill="none"
+                latexdraw:rotationAngle="0.0" marker-start="url(#arrow0-1335553321)"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1535600284">
+            <rect x="623.5" y="143.5" width="133.0" height="73.0"
+                latexdraw:borderPos="outer" stroke-width="7.0"
+                stroke="black" fill="none"/>
+            <rect x="623.5" y="143.5" width="133.0" height="73.0"
+                stroke="white" stroke-width="3.0" fill="none" latexdraw:type="dbleborders"/>
+        </g>
+        <g latexdraw:type="text" id="id755729766" fill="black" latexdraw:position="bl">
+            <text x="643.0" y="180.0">\large Alignment</text>
+        </g>
+        <g latexdraw:type="text" id="id2144976044" fill="black" latexdraw:position="bl">
+            <text x="663.0" y="200.0">\large Result</text>
+        </g>
+        <g latexdraw:type="text" id="id1898054508" fill="black" latexdraw:position="bl">
+            <text x="658.0" y="240.0">\large (output)</text>
+        </g>
+        <g latexdraw:type="joinedLines" id="id1061814892">
+            <polyline points="620.0,180.0 540.0,180.0 "
+                stroke-width="2.0" stroke="black"
+                latexdraw:rotationAngle="0.0" marker-start="url(#arrow0-1061814892)"/>
+        </g>
+    </g>
+    <defs>
+        <marker overflow="visible" orient="auto" id="arrow0-966213851">
+            <path
+                d="M 0.0 0.0 L 4.652083333333334 1.6614583333333335 L 4.652083333333334 0.0 L 4.652083333333334 -1.6614583333333335 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+        <marker overflow="visible" orient="auto" id="arrow0-1335553321">
+            <path
+                d="M 0.0 0.0 L 4.652083333333334 1.6614583333333335 L 4.652083333333334 0.0 L 4.652083333333334 -1.6614583333333335 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+        <marker overflow="visible" orient="auto" id="arrow0-1061814892">
+            <path
+                d="M 0.0 0.0 L 4.652083333333334 1.6614583333333335 L 4.652083333333334 0.0 L 4.652083333333334 -1.6614583333333335 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+    </defs>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:latexIncludes>\usepackage{mathptmx}</latexdraw:latexIncludes>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:unit>CM</latexdraw:unit>
+            <latexdraw:zoom>1.0</latexdraw:zoom>
+            <latexdraw:magneticGridStyle>CUSTOMISED</latexdraw:magneticGridStyle>
+            <latexdraw:gridGap>20</latexdraw:gridGap>
+            <latexdraw:magneticGrid>true</latexdraw:magneticGrid>
+            <latexdraw:version>3.3.9</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1280</latexdraw:width>
+                <latexdraw:height>800</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>335.0</latexdraw:x>
+                <latexdraw:y>125.0</latexdraw:y>
+            </latexdraw:position>
+        </latexdraw:metadata>
+    </metadata>
+</svg>
