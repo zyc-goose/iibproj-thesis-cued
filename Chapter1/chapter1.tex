@@ -62,7 +62,8 @@ Unfortunately, few work has been done in designing and implementing such a syste
 
 
 %%% Project Aim
-\section{Project Aim}
+\section{Project Aims}
+\label{sec:intro-aims}
 
 % general aim
 This project aims to investigate the feasibility of the idea `talking handouts' by designing, implementing and evaluating a minimum working software system which automatically computes the alignment (or mappings) between the chunks of handouts and the segments of the corresponding lecture recordings. Here we use the word `chunk' to denote a block of meaningful information in the handouts, and use the word `segment' to denote an interval with a starting time and an ending time in the lecture recordings. The wording `chunk' and `segment' will be used throughout the report.
@@ -74,7 +75,9 @@ An important subtask of the project is to investigate methods of dividing the ha
 Another important subtask of the project is to investigate speech-recognition based algorithms of aligning chunks of handouts with segments of lecture recordings. `Speech-recognition based' means that the lecture recordings are first fed into a speech recogniser and we use the output of the recogniser as one of the inputs of the alignment algorithm (the other input is the chunks of extracted handout text). The final system uses a \texttt{diff}-based alignment algorithm which is discussed in detail in \textcolor{red}{these chapters}.
 
 % some assumptions
-It would be worth mentioning that the project will only focus on handouts with filled-in handwritten notes (discussed in the first paragraph of \Cref{sec:intro-background}), since handouts of this type are fundamental to the CUED teaching (especially for Part IA and IB) and they also contain handwritten information which is interesting to investigate. Also by the statement of `speech-recognition based' in the second subtask we have actually assumed implicitly that we will only be using the audio information of the lecture recordings and the video information will be abandoned for simplicity. To avoid confusion, the wording `lecture audio file' is used instead of `lecture recording' in the rest of the report.
+It would be worth mentioning that the project will only focus on handouts with filled-in handwritten notes (discussed in the first paragraph of \Cref{sec:intro-background}), since handouts of this type are fundamental to the CUED teaching (especially for Part IA and IB) and they also contain handwritten information which is interesting to investigate. 
+
+In addition, the expression `speech-recognition based' in the second subtask has two further implications. The first implication is that the system is supposed to be using a mature speech recogniser and we're not going to care about how to tune the speech recogniser. The second implication is that we will only be using the audio information of the lecture recordings and the video information will be abandoned for simplicity. To avoid confusion, the wording `lecture audio file' is used instead of `lecture recording' in the rest of the report.
 
 
 %%% Report Structure %%%
