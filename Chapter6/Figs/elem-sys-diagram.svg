@@ -1,0 +1,214 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <g>
+        <g latexdraw:type="text" id="id1289351537" fill="black" latexdraw:position="bl">
+            <text x="163.0" y="117.0">\large Handout</text>
+        </g>
+        <g latexdraw:type="text" id="id569924226" fill="black" latexdraw:position="bl">
+            <text x="161.0" y="140.0">\large PDF File</text>
+        </g>
+        <g latexdraw:type="text" id="id1052039546" fill="black" latexdraw:position="bl">
+            <text x="163.0" y="180.0">\large (input 1)</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id1813807522">
+            <rect x="143.5" y="83.5" width="113.0" height="73.0"
+                latexdraw:borderPos="outer" stroke-width="7.0"
+                stroke="black" fill="none"/>
+            <rect x="143.5" y="83.5" width="113.0" height="73.0"
+                stroke="white" stroke-width="3.0" fill="none" latexdraw:type="dbleborders"/>
+        </g>
+        <g latexdraw:type="text" id="id1448865873" fill="black" latexdraw:position="bl">
+            <text x="167.0" y="237.0">\large Lecture</text>
+        </g>
+        <g latexdraw:type="text" id="id967262154" fill="black" latexdraw:position="bl">
+            <text x="155.0" y="260.0">\large Audio File</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id1459609371">
+            <rect x="143.5" y="203.5" width="113.0" height="73.0"
+                latexdraw:borderPos="outer" stroke-width="7.0"
+                stroke="black" fill="none"/>
+            <rect x="143.5" y="203.5" width="113.0" height="73.0"
+                stroke="white" stroke-width="3.0" fill="none" latexdraw:type="dbleborders"/>
+        </g>
+        <g latexdraw:type="text" id="id313327208" fill="black" latexdraw:position="bl">
+            <text x="163.0" y="300.0">\large (input 2)</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id981724193">
+            <rect x="863.5" y="143.5" width="113.0" height="73.0"
+                latexdraw:borderPos="outer" stroke-width="7.0"
+                stroke="black" fill="none"/>
+            <rect x="863.5" y="143.5" width="113.0" height="73.0"
+                stroke="white" stroke-width="3.0" fill="none" latexdraw:type="dbleborders"/>
+        </g>
+        <g latexdraw:type="text" id="id1461222020" fill="black" latexdraw:position="bl">
+            <text x="875.0" y="170.0">\large Alignment</text>
+        </g>
+        <g latexdraw:type="text" id="id392774790" fill="black" latexdraw:position="bl">
+            <text x="895.0" y="187.0">\large Result</text>
+        </g>
+        <g latexdraw:type="text" id="id894251324" fill="black" latexdraw:position="bl">
+            <text x="889.0" y="240.0">\large (output)</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id1832493554">
+            <rect x="301.0" y="81.0" width="178.0" height="78.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none" rx="9.719999999999999"/>
+        </g>
+        <g latexdraw:type="text" id="id1830700398" fill="black" latexdraw:position="bl">
+            <text x="337.0" y="117.0">\large OCR Engine</text>
+        </g>
+        <g latexdraw:type="text" id="id1901642622" fill="black" latexdraw:position="bl">
+            <text x="349.0" y="144.0">\large [Tesseract]</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id1312295587">
+            <rect x="301.0" y="201.0" width="178.0" height="78.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none" rx="9.719999999999999"/>
+        </g>
+        <g latexdraw:type="text" id="id1771679164" fill="black" latexdraw:position="bl">
+            <text x="310.0" y="237.0">\large Speech Recogniser</text>
+        </g>
+        <g latexdraw:type="text" id="id640725781" fill="black" latexdraw:position="bl">
+            <text x="326.0" y="264.0">\large [Google Cloud]</text>
+        </g>
+        <g latexdraw:type="text" id="id839706355" fill="black" latexdraw:position="bl">
+            <text x="537.0" y="114.0">\large Text Chunks</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id62803123">
+            <rect x="523.5" y="83.5" width="133.0" height="73.0"
+                latexdraw:borderPos="outer" stroke-width="7.0"
+                stroke="black" fill="none"/>
+            <rect x="523.5" y="83.5" width="133.0" height="73.0"
+                stroke="white" stroke-width="3.0" fill="none" latexdraw:type="dbleborders"/>
+        </g>
+        <g latexdraw:type="text" id="id18715523" fill="black" latexdraw:position="bl">
+            <text x="547.0" y="239.0">\large Transcript</text>
+        </g>
+        <g latexdraw:type="rectangle" id="id1891081415">
+            <rect x="523.5" y="203.5" width="133.0" height="73.0"
+                latexdraw:borderPos="outer" stroke-width="7.0"
+                stroke="black" fill="none"/>
+            <rect x="523.5" y="203.5" width="133.0" height="73.0"
+                stroke="white" stroke-width="3.0" fill="none" latexdraw:type="dbleborders"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id892252806">
+            <rect x="701.0" y="141.0" width="118.0" height="78.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none" rx="9.719999999999999"/>
+        </g>
+        <g latexdraw:type="text" id="id1895682617" fill="black" latexdraw:position="bl">
+            <text x="715.0" y="170.0">\large Alignment</text>
+        </g>
+        <g latexdraw:type="text" id="id2105128943" fill="black" latexdraw:position="bl">
+            <text x="741.0" y="215.0">\large [diff]</text>
+        </g>
+        <g latexdraw:type="text" id="id230215946" fill="black" latexdraw:position="bl">
+            <text x="716.0" y="192.0">\large Algorithm</text>
+        </g>
+        <g latexdraw:type="joinedLines" id="id95873128">
+            <polyline points="300.0,120.0 260.0,120.0 "
+                stroke-width="2.0" stroke="black"
+                latexdraw:rotationAngle="0.0" marker-start="url(#arrow0-95873128)"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id582418191">
+            <polyline points="300.0,240.0 260.0,240.0 "
+                stroke-width="2.0" stroke="black"
+                latexdraw:rotationAngle="0.0" marker-start="url(#arrow0-582418191)"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id805873514">
+            <polyline points="520.0,120.0 480.0,120.0 "
+                stroke-width="2.0" stroke="black"
+                latexdraw:rotationAngle="0.0" marker-start="url(#arrow0-805873514)"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id465817308">
+            <polyline points="520.0,240.0 480.0,240.0 "
+                stroke-width="2.0" stroke="black"
+                latexdraw:rotationAngle="0.0" marker-start="url(#arrow0-465817308)"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id325124076">
+            <polyline points="760.0,140.0 760.0,120.0 660.0,120.0 "
+                stroke-width="2.0" stroke="black" fill="none"
+                latexdraw:rotationAngle="0.0" marker-start="url(#arrow0-325124076)"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id1479700475">
+            <polyline points="760.0,220.0 760.0,240.0 660.0,240.0 "
+                stroke-width="2.0" stroke="black" fill="none"
+                latexdraw:rotationAngle="0.0" marker-start="url(#arrow0-1479700475)"/>
+        </g>
+        <g latexdraw:type="joinedLines" id="id469098827">
+            <polyline points="860.0,180.0 820.0,180.0 "
+                stroke-width="2.0" stroke="black"
+                latexdraw:rotationAngle="0.0" marker-start="url(#arrow0-469098827)"/>
+        </g>
+        <g latexdraw:type="text" id="id983417330" fill="black" latexdraw:position="bl">
+            <text x="530.0" y="146.0">\large (\texttt{BBoxGroups})</text>
+        </g>
+        <g latexdraw:type="text" id="id987043917" fill="black" latexdraw:position="bl">
+            <text x="546.0" y="266.0">\large (\texttt{WStamps})</text>
+        </g>
+        <g latexdraw:type="text" id="id518484994" fill="black" latexdraw:position="bl">
+            <text x="877.0" y="210.0">\large (\texttt{Matches})</text>
+        </g>
+    </g>
+    <defs>
+        <marker overflow="visible" orient="auto" id="arrow0-95873128">
+            <path
+                d="M 0.0 0.0 L 4.652083333333334 1.6614583333333335 L 4.652083333333334 0.0 L 4.652083333333334 -1.6614583333333335 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+        <marker overflow="visible" orient="auto" id="arrow0-582418191">
+            <path
+                d="M 0.0 0.0 L 4.652083333333334 1.6614583333333335 L 4.652083333333334 0.0 L 4.652083333333334 -1.6614583333333335 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+        <marker overflow="visible" orient="auto" id="arrow0-805873514">
+            <path
+                d="M 0.0 0.0 L 4.652083333333334 1.6614583333333335 L 4.652083333333334 0.0 L 4.652083333333334 -1.6614583333333335 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+        <marker overflow="visible" orient="auto" id="arrow0-465817308">
+            <path
+                d="M 0.0 0.0 L 4.652083333333334 1.6614583333333335 L 4.652083333333334 0.0 L 4.652083333333334 -1.6614583333333335 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+        <marker overflow="visible" orient="auto" id="arrow0-325124076">
+            <path
+                d="M 0.0 0.0 L 4.652083333333334 1.6614583333333335 L 4.652083333333334 0.0 L 4.652083333333334 -1.6614583333333335 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+        <marker overflow="visible" orient="auto" id="arrow0-1479700475">
+            <path
+                d="M 0.0 0.0 L 4.652083333333334 1.6614583333333335 L 4.652083333333334 0.0 L 4.652083333333334 -1.6614583333333335 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+        <marker overflow="visible" orient="auto" id="arrow0-469098827">
+            <path
+                d="M 0.0 0.0 L 4.652083333333334 1.6614583333333335 L 4.652083333333334 0.0 L 4.652083333333334 -1.6614583333333335 z "
+                latexdraw:arrSizeNum="2.0" fill="black"/>
+        </marker>
+    </defs>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:latexIncludes>
+\usepackage{mathptmx}</latexdraw:latexIncludes>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:unit>CM</latexdraw:unit>
+            <latexdraw:zoom>1.0</latexdraw:zoom>
+            <latexdraw:magneticGridStyle>CUSTOMISED</latexdraw:magneticGridStyle>
+            <latexdraw:gridGap>20</latexdraw:gridGap>
+            <latexdraw:magneticGrid>true</latexdraw:magneticGrid>
+            <latexdraw:version>3.3.9</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1280</latexdraw:width>
+                <latexdraw:height>800</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>380.0</latexdraw:x>
+                <latexdraw:y>147.0</latexdraw:y>
+            </latexdraw:position>
+        </latexdraw:metadata>
+    </metadata>
+</svg>

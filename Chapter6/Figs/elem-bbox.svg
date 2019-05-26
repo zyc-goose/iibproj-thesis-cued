@@ -1,0 +1,52 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <g>
+        <g latexdraw:type="rectangle" id="id973016938">
+            <rect x="201.0" y="81.0" width="298.0" height="178.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none" stroke-dasharray="8.819444444444445, 5.291666666666667"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id1021860799">
+            <rect x="241.0" y="121.0" width="218.0" height="98.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="text" id="id1526421641" fill="black" latexdraw:position="bl">
+            <text x="260.0" y="161.0">\LARGE The handouts </text>
+        </g>
+        <g latexdraw:type="text" id="id537931027" fill="black" latexdraw:position="bl">
+            <text x="260.0" y="201.0">\LARGE are talking </text>
+        </g>
+        <g latexdraw:type="text" id="id1266659117" fill="black" latexdraw:position="bl">
+            <text x="212.0" y="116.0">\large $(x_0,y_0)$</text>
+        </g>
+        <g latexdraw:type="text" id="id1218116995" fill="black" latexdraw:position="bl">
+            <text x="432.0" y="247.0">\large $(x_1,y_1)$ </text>
+        </g>
+    </g>
+    <defs/>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:latexIncludes>
+\usepackage{mathptmx}</latexdraw:latexIncludes>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:unit>CM</latexdraw:unit>
+            <latexdraw:zoom>1.0</latexdraw:zoom>
+            <latexdraw:magneticGridStyle>CUSTOMISED</latexdraw:magneticGridStyle>
+            <latexdraw:gridGap>20</latexdraw:gridGap>
+            <latexdraw:magneticGrid>true</latexdraw:magneticGrid>
+            <latexdraw:version>3.3.9</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1280</latexdraw:width>
+                <latexdraw:height>800</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>301.0</latexdraw:x>
+                <latexdraw:y>120.0</latexdraw:y>
+            </latexdraw:position>
+        </latexdraw:metadata>
+    </metadata>
+</svg>

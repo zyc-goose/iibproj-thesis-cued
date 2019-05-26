@@ -1,0 +1,57 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:latexdraw="http://latexdraw.sourceforge.net/namespaces/latexdraw"
+    version="1.1" baseProfile="full">
+    <g>
+        <g latexdraw:type="rectangle" id="id1493832255">
+            <rect x="581.0" y="81.0" width="298.0" height="178.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none" stroke-dasharray="8.819444444444445, 5.291666666666667"/>
+        </g>
+        <g latexdraw:type="text" id="id2115225129" fill="black" latexdraw:position="bl">
+            <text x="687.0" y="150.0">\LARGE The handouts </text>
+        </g>
+        <g latexdraw:type="rectangle" id="id1633636148">
+            <rect x="681.0" y="121.0" width="178.0" height="38.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="rectangle" id="id2074572797">
+            <rect x="601.0" y="181.0" width="138.0" height="38.0"
+                latexdraw:borderPos="outer" stroke-width="2.0"
+                stroke="black" fill="none"/>
+        </g>
+        <g latexdraw:type="text" id="id865048045" fill="black" latexdraw:position="bl">
+            <text x="744.0" y="113.0">\large BBox 1</text>
+        </g>
+        <g latexdraw:type="text" id="id1099962639" fill="black" latexdraw:position="bl">
+            <text x="640.0" y="242.0">\large BBox 2</text>
+        </g>
+        <g latexdraw:type="text" id="id4956532" fill="black" latexdraw:position="bl">
+            <text x="606.0" y="215.0">\LARGE are talking </text>
+        </g>
+    </g>
+    <defs/>
+    <metadata>
+        <latexdraw:metadata>
+            <latexdraw:latexIncludes>\usepackage{mathptmx}
+</latexdraw:latexIncludes>
+            <latexdraw:displayXScale>true</latexdraw:displayXScale>
+            <latexdraw:displayYScale>true</latexdraw:displayYScale>
+            <latexdraw:unit>CM</latexdraw:unit>
+            <latexdraw:zoom>1.0</latexdraw:zoom>
+            <latexdraw:magneticGridStyle>CUSTOMISED</latexdraw:magneticGridStyle>
+            <latexdraw:gridGap>20</latexdraw:gridGap>
+            <latexdraw:magneticGrid>true</latexdraw:magneticGrid>
+            <latexdraw:version>3.3.9</latexdraw:version>
+            <latexdraw:size>
+                <latexdraw:width>1280</latexdraw:width>
+                <latexdraw:height>800</latexdraw:height>
+            </latexdraw:size>
+            <latexdraw:position>
+                <latexdraw:x>250.0</latexdraw:x>
+                <latexdraw:y>92.0</latexdraw:y>
+            </latexdraw:position>
+        </latexdraw:metadata>
+    </metadata>
+</svg>
