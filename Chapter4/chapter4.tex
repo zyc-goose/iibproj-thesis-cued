@@ -73,7 +73,7 @@ Let $Z$ = $Z_1^p$ = ($Z_1$,$Z_2$,\ldots,$Z_p$), where $Z_i$ = $(S_i, T_i)$. Deno
   \item $Y$ can be made equal to $T$ by inserting 0 or more null symbols $\phi$
 \end{enumerate}
 
-Now define the Joint Weight Function, $\mathcal{F}(\cdot,\cdot)$: $A^* \times B^* \to \mathbb{R}$. The \textit{optimal alignment} $Z_{opt}$ is the alignment that maximise the sum of the joint weights, $\mathcal{W}$:
+Now define the \textit{Joint Weight Function}, $\mathcal{F}(\cdot,\cdot)$: $A^* \times B^* \to \mathbb{R}$. The \textit{optimal alignment} $Z_{opt}$ is the alignment that maximise the sum of the joint weights, $\mathcal{W}$:
 \begin{equation}
   Z_{opt} \,=\, \argmax_{Z} \mathcal{W}(Z) \,=\, \argmax_{Z} \sum_{i=1}^{p} \mathcal{F}(S_i,T_i)
 \end{equation}
@@ -105,8 +105,8 @@ Usually when comparing two sequences, we care about the total weight (or score) 
     \mathcal{F}(x,y) & \text{\quad substitute } x \text{ with } y
   \end{cases}
 \]
-In the alignment of DNA sequences, it's common to assign positive scores for matches and negative scores for mismatches. If we define $\mathcal{F}(x,y)$ to be +1 if $x$ = $y$ and -1 otherwise, the total weight (or score) $\mathcal{W}$ can be calculated as:
-\[ \mathcal{W}(Z) = 1 - 1 + 1 + 1 - 1 - 1 + 1 - 1 = 0 \]
+In the alignment of DNA sequences, it's common to assign positive scores for matches (same symbols) and negative scores for mismatches (insertions, deletions, substitutions with different symbols). If we define $\mathcal{F}(x,y)$ to be +1 if $x$ = $y$ and -1 otherwise, the total weight (or score) $\mathcal{W}$ can be calculated as:
+\[ \mathcal{W}(Z) = + 1 - 1 + 1 + 1 - 1 - 1 + 1 - 1 = 0 \]
 
 \subsection{Alignment in the System}
 
