@@ -14,11 +14,11 @@
 
 \section{The Ground-Truth Data}
 
-The ground-truth data of a single set of input lecture data (a handout PDF file + its associated audio file) can be seen as the correct mappings from the handout chunks (\texttt{BBoxGroup} objects) to the corresponding parts of the audio file (\texttt{TIntervalGroup} objects). The ground truth data as a whole can be represented by a \texttt{Matches} object described in \Cref{sec:basic-elem-matches}.
+The ground-truth (GT) data of a single set of input lecture data (a handout PDF file + its associated audio file) can be seen as the correct mappings from the handout chunks (\texttt{BBoxGroup} objects) to the corresponding parts of the audio file (\texttt{TIntervalGroup} objects). The ground truth data as a whole can be represented by a \texttt{Matches} object described in \Cref{sec:basic-elem-matches}.
 
 The ground-truth data should be labelled at the finest spatial scale possible, which means each \texttt{BBoxGroup} object in the ground-truth data is supposed to be as small (in its total area) as possible. This ensures the feasibility of the multi-scale evaluation of the alignment algorithm.
 
-\section{Evaluating the Tesseract PLA}
+\section{Evaluating the OCR PLA}
 
 Recall that the page layout analysis (PLA) of the Tesseract OCR engine produces a set of bounding-boxes which identifies distinct text regions in the PDF input. In \Cref{fig:eval-ocr-pla}, we can see how true positives (TP), true negatives (TN), false positives (FP) and false negatives (FN) are identified, given the bounding-boxes (a \texttt{BBoxGroups} object as a whole) in the ground-truth data. Here we assume that the bounding-boxes are non-overlapping for the ground-truth data and the OCR output respectively (in practice the OCR output bounding-boxes may overlap a little bit).
 
@@ -63,9 +63,9 @@ where $N$ is the length of the reference string $Y$ (ground-truth).
 
 \section{Evaluating the Alignment Algorithm}
 
-Evaluation of the alignment algorithm is more difficult since the scale of the OCR output bounding-boxes (a \texttt{BBoxGroups} object as a whole) may vary. We first need to find the correct ground-truth audio segments (\texttt{TIntervalGroup} object) for each bounding-box (at different scales) of the OCR output, and then compare the segments from the output of the alignment algorithm with the correct segments. 
+Evaluation of the alignment algorithm is more difficult since the scale of the OCR output bounding-boxes (a \texttt{BBoxGroups} object as a whole) may vary. We first need to find the correct ground-truth audio segments (\texttt{TIntervalGroup} object) for each bounding-box (at different scales) of the OCR output, and then compare the segments from the output of the alignment algorithm with the correct segments in the time domain. 
 
-\subsection{Dealing with Multiple Scales}
+\subsection{Handling Multiple Scales}
 
 Let's start with an example. \Cref{fig:eval-align-scale} shows 3 different OCR output bounding-boxes of various scales (in 3 different colors other than black) and their assigned ground-truth audio segments. The ground-truth bounding-boxes (\texttt{BBoxGroup} objects) and their matching audio segments (\texttt{TIntervalGroup} objects) are shown in black. 
 
@@ -78,3 +78,33 @@ Let's start with an example. \Cref{fig:eval-align-scale} shows 3 different OCR o
 
 It's clear that the number of assigned ground-truth audio segments generally increases with the bounding-box scale. For example in \Cref{fig:eval-align-scale}, the yellow bounding-box encloses only the first \texttt{BBoxGroup} object and is assigned just the first ground-truth audio segment, while the red bounding-box includes all the \texttt{BBoxGroup} objects so it is assigned all three audio segments.
 
+However, a ground-truth \texttt{BBoxGroup} object may not necessarily be perfectly enclosed in an OCR output bounding-box. Often the ground-truth bounding-box is partially enclosed by multiple OCR bounding-boxes, in which case we need to decide which OCR bounding-box the ground-truth bounding-box belongs to.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=.8\textwidth]{eval-gt-assign.eps}
+    \caption{Strategy of GT bounding-box assignment to OCR boxes}
+    \label{fig:eval-gt-assign}
+\end{figure}
+
+In this evaluation framework we use a very simple strategy which assigns each ground-truth \texttt{BBoxGroup} object to the OCR \texttt{BBoxGroup} object which has the largest intersection area with this ground-truth \texttt{BBoxGroup} object. \Cref{fig:eval-gt-assign} shows an example GT \texttt{BBoxGroup} object intersecting 3 OCR \texttt{BBoxGroup} objects, and it is assigned to OCR \texttt{BBoxGroup} 2 since they have the largest intersection area.
+
+\subsection{Time-Domain Alignment Evaluation}
+
+\begin{figure}[!tb]
+    \centering
+    \includegraphics[width=.9\textwidth]{eval-time-domain.eps}
+    \caption{Comparing multiple audio segments on a single timeline}
+    \label{fig:eval-time-domain}
+\end{figure}
+
+After the ground-truth assignment in the previous section, for each OCR output bounding-box we concatenate the assigned ground-truth audio segments (\texttt{TIntervalGroup} objects) in the time domain, and compare the GT segments with the alignment output segments corresponding to the OCR bounding-box. \Cref{fig:eval-time-domain} shows 3 sets of alignment output segments, their corresponding GT segments (dashed) and the intersections between the alignment segments and the GT segments (in green). We then define the recall rate of alignment in time domain:
+\begin{equation}
+    \text{Alignment Recall Rate}\,=\,\frac{\text{Total length of intersections}}{\text{Total length of the GT segments}}
+\end{equation}
+which is the evaluation metric for the alignment accuracy in time domain.
+
+
+\nomenclature[z-GT]{GT}{Ground Truth}
+\nomenclature[z-TPR]{TPR}{True Positive Rate}
+\nomenclature[z-TNR]{TNR}{True Negative Rate}
