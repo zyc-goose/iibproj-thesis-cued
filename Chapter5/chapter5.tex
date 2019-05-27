@@ -91,3 +91,47 @@ This strategy can be extended to any number of handout chunks. For each chunk wi
 
 Note that this strategy is based on the assumption that the time spent on explaining a handout chunk is roughly proportional to the length of the chunk (in number of words).
 
+
+\section{Extending the Baseline JWF}
+
+Clearly the joint weight function can do more than just finding the longest common subsequence (\Cref{eq:jwf-baseline}) of two sequences. In this section we will discuss how the JWF could be extended in various ways.
+
+\subsection{Adding Time Constraints}
+
+Based on the assumptions that the lecturers will read the handouts in the strictly sequential order and that the amount of time spent on explaining a specific handout chunk is roughly proportional to the number of words in that chunk, we would expect that for any single match in the optimal alignment $Z_{opt}$, the difference between the relative position of the matching word in the handout and the relative position of the matching word in the audio file should be relatively small. 
+
+Here we define the relative position of a word in the handout as the total number of its preceding words divided by the total number of words in the handout. Similarly we can define the the relative position of a word in the audio file to be the time difference between the timestamp of the word and the origin of the audio file, divided by the total length of the audio file. Clearly both of the relative positions range from 0 to 1.
+
+In CUED the lectures are normally 50-minute long. Let $Z$ be a valid alignment and $(x,y)$ be an element in $Z$. Define $\mathcal{D}(x,y)$ as the difference between $x$'s relative position (in the handout) and $y$'s relative position (in the audio file) scaled by a factor of 50. We can interpret $\mathcal{D}(x,y)$ as the distance between $x$ and $y$ in minutes on the timeline of the audio file.
+
+In the alignment algorithm, we would like to penalise large values of $\mathcal{D}(x,y)$. In the actual alignment system we use the Gaussian function with standard deviation $\sigma_t$, which yields the following JWF:
+\begin{equation}
+  \mathcal{F}(x,y) = 
+  \begin{cases}
+    \exp \left(-\frac{\mathcal{D}(x,y)}{2 \sigma_t^2}\right) & \text{if } x = y\\
+    0 & \text{otherwise}
+  \end{cases}
+  \label{eq:jwf-gauss}
+\end{equation}
+we have removed the preceding normalising term of the Gaussian since it won't affect the optimal alignment. The Gaussian function decays when $\mathcal{D}(x,y)$ increases, which automatically penalises matches with large differences in relative positions.
+
+\subsection{Penalising Common-word Matches}
+
+In an alignment, matches of common words like `a', `the' and `it' should be less valuable than matches of other kinds of words. The Oxford Corpus have listed 100 most commonly used English words \cite{oec-common-words} based on the word frequencies in the corpus. Define the following function $\mathcal{C}(x)$ with a parameter $\alpha_c > 0$:
+\begin{equation}
+  \mathcal{C}(x) = 
+  \begin{cases}
+    \alpha_c & \text{if } x \text{ in the Oxford Corpus list}\\
+    1 & \text{otherwise}
+  \end{cases}
+\end{equation}
+Clearly $\alpha_c$ should be less than 1 in order to penalise common-word matches. Combine this function with \Cref{eq:jwf-gauss} yields the final JWF in the alignment algorithm:
+\begin{equation}
+  \mathcal{F}(x,y) = 
+  \begin{cases}
+    \mathcal{C}(x) \exp \left(-\frac{\mathcal{D}(x,y)}{2 \sigma_t^2}\right) & \text{if } x = y\\
+    0 & \text{otherwise}
+  \end{cases}
+  \label{eq:jwf-gauss}
+\end{equation}
+note that the final $\mathcal{F}(x,y)$ has two adjustable parameters $\sigma_t$ and $\alpha_c$.

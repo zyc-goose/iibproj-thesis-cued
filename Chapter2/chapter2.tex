@@ -40,7 +40,9 @@ Since recognising complex components like equations, tables and figures could be
 
 The lecture audio file corresponding to the input handout PDF file is another important system input. The format of the input audio files are not particularly specified since we can convert the audio files into any desired format with a proper audio transcoder. Hence we will assume that the input audio files may take any audio format, with the only requirement that this format should be able to be transcoded to any required format in the system.
 
-Another important assumption is made on how the lecturers deliver lectures. Normally, the lecturers will simply just read and explain handouts sequentially from top to bottom, page by page. However, they may occasionally skip sections or revisit previous sections during the lectures. In order to simplify the task in this project, we assume that the lecturers will refer to the handouts in strictly sequential order when giving lectures.
+We shall also make assumptions on how the lecturers deliver lectures. Normally, the lecturers will simply just read and explain handouts sequentially from top to bottom, page by page. However, they may occasionally skip sections or revisit previous sections during the lectures. In order to simplify the task in this project, we assume that the lecturers will refer to the handouts in strictly sequential order when giving lectures.
+
+Another assumption on how the lecturers deliver lectures is that the amount of time spent on explaining a chunk of handout should be roughly proportional to the number of words in that chunk. This is an important assumption which is used in the design of the core alignment algorithm. Again this is actually a huge simplification of the problem and in real lectures this relationship is usually far from linear. 
 
 
 %%% Alignment Result %%%
