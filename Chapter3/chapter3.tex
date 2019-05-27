@@ -2,6 +2,7 @@
 
 %%%%% Chapter: System Architecture %%%%%
 \chapter{System Architecture}
+\label{chap:sys-architecture}
 
 \ifpdf
     \graphicspath{{Chapter3/Figs/Raster/}{Chapter3/Figs/PDF/}{Chapter3/Figs/}}
@@ -45,6 +46,7 @@ In the standard OCR pipeline, there is a Page Layout Analysis (PLA) step which a
 A good OCR engine should be able to recognise printed text of various fonts with high accuracy. Recognition of handwritten text is clearly harder due to the uncertainty of the writing style, however the ability of recognising handwritten text is still desirable since handwritten text is of great interest in the project. Also, the Page Layout Analysis (PLA) of the OCR engine should be as accurate as possible.
 
 \subsection{Selected Tool: Tesseract OCR}
+\label{sec:sys-arch-tess}
 
 Tesseract OCR is an open-source command-line OCR engine sponsored by Google since 2006. It is able to perform PLA which finds bounding-boxes of texts at 5 different levels (word, line, paragraph, block, page). The current software system uses Tesseract 4.0 (the recent stable version), which includes an LSTM-based neural network model (pre-trained with 400000 textlines spanning around 4500 fonts), which provides higher recognition accuracy compared to previous versions. The engine could also be fine-tuned or retrained using additional data.
 
