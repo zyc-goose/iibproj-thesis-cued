@@ -50,7 +50,7 @@ A good OCR engine should be able to recognise printed text of various fonts with
 
 Tesseract OCR is an open-source command-line OCR engine sponsored by Google since 2006. It is able to perform PLA which finds bounding-boxes of texts at 5 different levels (word, line, paragraph, block, page). The current software system uses Tesseract 4.0 (the recent stable version), which includes an LSTM-based neural network model (pre-trained with 400000 textlines spanning around 4500 fonts), which provides higher recognition accuracy compared to previous versions. The engine could also be fine-tuned or retrained using additional data.
 
-The reason for choosing Tesseract OCR is that it is an open-source command-line tool whose internal model can be fine-tuned or retrained from scratch. Open-source means it's free to use, and command-line tool means that it can be easily integrated into our software system. In addition, it would be possible to improve the accuracy of recognising handwritten text by fine-tuning the Tesseract with additional labelled handwritten dataset.
+The reason for choosing Tesseract OCR is that it is an open-source command-line tool whose internal model can be fine-tuned or retrained from scratch. Open-source means it is free to use, and command-line tool means that it can be easily integrated into our software system. In addition, it would be possible to improve the accuracy of recognising handwritten text by fine-tuning the Tesseract with additional labelled handwritten dataset.
 
 
 %%% Speech Recogniser %%%
@@ -68,13 +68,13 @@ The Word Error Rate (WER) is a common measure of the performances of speech reco
 
 \subsection{Selected Tool: Google Cloud Speech-to-Text API}
 
-The current system uses the Google Cloud Speech-to-Text API as the speech recogniser. For long audio files like lecture audio files (typically an hour), the transcription process for the Google Cloud is done asynchronously: the client sends a request to the Google Cloud server; the server processes the input audio data (usually takes 5-10 minutes); the server sends back the transcription result to the client. The API supports most of the mainstream languages including Python, C\# and Java.
+The current system uses the Google Cloud Speech-to-Text API as the speech recogniser. For long audio files like lectures (typically an hour), the transcription process for the Google Cloud is done asynchronously: the client sends a request to the Google Cloud server; the server processes the input audio data (usually takes 5-10 minutes); the server sends back the transcription result to the client. The API supports most of the mainstream languages including Python, C\# and Java.
 
 The transcription result is a list of segments, each of which contains the transcribed text and its starting timestamp. The timestamp for each individual recognised word is also included in the returned result.
 
-Transcribing an hour-long lecture will generally take a long time if we use offline speech recognisers on our local PC machines. Therefore, using cloud-based speech recognisers would be preferred since they have access to much more computing power and can significantly reduce the transcription time. 
+Transcribing an hour-long lecture generally takes a long time if we use offline speech recognisers on our local PC machines. Therefore, using cloud-based speech recognisers would be preferred since they have much more computing power and can significantly reduce the total transcription time. 
 
-An example lecture has been transcribed using Google Cloud and its WER is roughly 15\%. Since this is a reasonable accuracy and it's hard to find other speech-to-text systems which have the same level of functionality and accuracy, the Google Cloud is selected as the speech recogniser of the current system.
+An example lecture~\footnote{The first lecture of Part IA Mathematics (2010), taught by Prof. Malcolm Smith} has been transcribed using Google Cloud and its WER is roughly 15\%. Since this is a reasonable accuracy and it is hard to find other speech-to-text systems which have the same level of functionality and performance, the Google Cloud is selected as the speech recogniser of the current system.
 
 
 %%% Alignment Algorithm
@@ -82,17 +82,17 @@ An example lecture has been transcribed using Google Cloud and its WER is roughl
 
 \subsection{General Introduction}
 
-The alignment algorithm finds the correspondence between handout chunks and audio segments, based on the textual outputs from the OCR engine and the speech recogniser. This is the core system part which determines the mappings between the handout and the corresponding audio file. 
+The alignment algorithm finds the correspondences between the handout chunks and the audio segments, based on the textual outputs from the OCR engine and the speech recogniser. This is the core system part which determines the mappings between the handout and the corresponding audio file. 
 
 As \Cref{fig:sys-diagram-full} shows, the two outputs from the OCR engine and the speech recogniser becomes the two inputs of the alignment algorithm. Both inputs are essentially just segmented text strings: the extracted handout text is segmented by the bounding-boxes and the audio file is segmented into shorter text strings based on the pauses in the speech.
 
-The alignment output is simply just the system output, which has been explained in \Cref{sec:assume-align-res}. Each chunk (bounding-box) of the handout should be mapped to a starting time and an ending time as in the associated audio file. 
+The alignment output is equivalent to the system output, which has been explained in \Cref{sec:assume-align-res}. Each chunk (bounding-box) of the handout should be mapped to a starting time and an ending time with respect to the associated audio file. 
 
 \subsection{Selected Tool: Word-based \texttt{diff}}
 
 The \texttt{diff} utility is originally a Unix command-line tool which calcuates and displays the differences between two files. The \texttt{diff} algorithm essentially solves the longest common subsequence (LCS) problem between two sequences of items. For either sequence, those items which are not in the LCS indicate occurrences of differences compared to the other sequence.
 
-In the word-based \texttt{diff} algorithm, the items in the two input sequences should all be words. The use of word-based \texttt{diff} algorithm in the current system is inspired by \cite{lanchantin2015development}, which used a \texttt{diff}-based algorithm to align imperfect captions with audio of TV shows. Based on the previous assumption that the lecturers will read and explain the handouts in strictly sequential order, the word-based \texttt{diff} algorithm could be used to produce acceptable alignment results by finding word matches between the handouts and the lecture audio files. 
+In the word-based \texttt{diff} algorithm, the items in the two input sequences should all be words. The use of word-based \texttt{diff} algorithm in the current system is inspired by \cite{lanchantin2015development}, which used a \texttt{diff}-based algorithm to align imperfect captions with audio of TV shows. Based on the previous assumption that the lecturers will read and explain the handouts in strictly sequential order, the word-based \texttt{diff} algorithm could be used to produce acceptable alignment results by finding word matches between the handouts and the lecture audio files. This process is explained with more detail in \Cref{chap:align}.
 
 
 

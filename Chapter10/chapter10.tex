@@ -18,8 +18,6 @@ The Tesseract OCR engine is a straightforward tool to convert handout images to 
 
 Recognising handwritten text with OCR engine is generally hard, and fine-tuning the original Tesseract model with external handwritten data also didn't work quite well, according to the evaluation results in \Cref{chap:eval-results}. 
 
-The Tesseract OCR engine has done a very decent job in general, with the only obvious weak point that it cannot recognise handwritten data very well. Recognising handwritten text with decent accuracy would be very helpful to achieve even better alignment results, which is definitely worthwhile to be investigated in the future.
-
 \section{Summary of the \texttt{diff}-based Alignment Algorithm}
 
 The design of alignment algorithm of the system is based on the idea of the Unix command-line tool \texttt{diff}. The core part of the alignment algorithm in the system solves the optimal alignment between the sequence words in the handout and the sequence of words in the lecture audio file. The alignment algorithm could be parameterised by using different joint weight functions (JWF).
@@ -34,3 +32,12 @@ The project aims to test the feasibility of the idea of making a software system
 As a conclusion, this idea should be regarded as feasible based on the results from the evaluation framework. When the OCR scale is set to `paragraph', the best alignment accuracy that can be achieved is 46.67\%. Although this number does not seem to be high, the actual experience of using the alignment functionality of the GUI is actually quite satisfactory. For most of the time, the alignment can find the positions of the audio segments at roughly the right place and these segments usually have half of their total length intersected with the ground-truth segments (this agrees with the alignment accuracy 46.67\%). In practice we just need to move around the audio cursor by a little bit if the alignment could link us to the roughly correct position.
 
 Furthermore, considering that we have used an extremely simple system architecture which roughly solves the task, it would be completely possible for us to achieve even better results using more sophisticated architectures. 
+
+\section{Future Work}
+
+The Tesseract OCR engine has done a very decent job in general, with the only obvious weak point that it cannot recognise handwritten data very well. Recognising handwritten text with decent accuracy would be very helpful to achieve even better alignment results, which is definitely worthwhile to be investigated in the future.
+
+The \texttt{diff}-based alignment algorithm is capable of computing satisfactory alignment results for simple input data which complies with our basic assumptions. However its performance is expected to drop when the complexity of the task increases. Hence, investigating alternative algorithm to the \texttt{diff}-based one that solves more sophisticated tasks should also be interesting.
+
+Equations also form a crucial part in the CUED handouts. It is also worth investigating how the lecturers refer to equations and how to convert printed and handwritten equations to the spoken form. The alignment accuracy is likely to be significantly boosted if equations could be recognised with acceptable accuracy.
+

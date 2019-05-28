@@ -49,7 +49,7 @@ Recall that the Page Layout Analysis of the Tesseract OCR engine is able to iden
 
 In the actual system implementation, the user would be able to choose 4 different scales: word, line, paragraph and page. The `block' scale is removed from the implementation since in practice the difference between the `block' scale and the `paragraph' scale is negligible (which can be seen from \Cref{fig:tess-pla-scales}), and we keep the `paragraph' scale since the name `paragraph' is less ambiguous than `block'. 
 
-We also keep the `page' scale in the system implementation for evaluation purposes described in later chapters, though this scale is not actually useful in practical use. The choice of PLA scale is considered to be one of the adjustable system parameters.
+The `page' scale actually remains in the system implementation for evaluation purposes, though this scale is not actually useful in practical use. The choice of PLA scale is considered to be one of the adjustable system parameters.
 
 \section{Training Tesseract with Handwritten Data}
 
@@ -84,6 +84,6 @@ Base on the results in \Cref{fig:tess-eval}, we can see that the evaluation WER 
 
 \subsection{Selected Model}
 
-Considering that the evaluation datasets are extremely small and the WERs are almost flat over the iteration range 0 - 10000, it's hard to make the decision and any choice within this range seems to be reasonable. Observing that there's a little dip in the yellow plot at iteration 9000, we have picked the fine-tuned model at iteration 9000 and have included this model as the alternative to the original Tesseract model.
+Considering that the evaluation datasets are extremely small and the WERs are almost flat over the iteration range 0 - 10000, it is hard to make the decision and any choice within this range seems to be reasonable. Observing that there's a little dip in the yellow plot at iteration 9000, we have picked the fine-tuned model at iteration 9000 and have included this model as the alternative to the original Tesseract model.
 
 Tesseract allows us to specify what model to use before running the OCR engine. The final system now contains two available models: the original one (named as \texttt{eng}) and the fine-tuned model at iteration 9000 (named as \texttt{eng-9000}). User can switch between the two models in the final software interface.

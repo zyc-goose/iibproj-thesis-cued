@@ -13,7 +13,7 @@
 
 \section{Overview}
 
-For the purpose of monitoring the system performance, an evaluation framework has been designed and implemented in this project. Methodologies for evaluating the OCR engine and the alignment algorithm are described in the following sections. Note that the evaluation for the speech recogniser has not been included in the framework since it's not the focus of the project. The evaluation framework also requires the ground-truth data to be provided.
+For the purpose of monitoring the system performance, an evaluation framework has been designed and implemented in this project. Methodologies for evaluating the OCR engine and the alignment algorithm are described in the following sections. Note that the evaluation for the speech recogniser has not been included in the framework since it is not the focus of the project. The evaluation framework also requires the ground-truth data to be provided.
 
 \section{The Ground-Truth Data}
 
@@ -70,7 +70,7 @@ Evaluation of the alignment algorithm is more difficult since the scale of the O
 
 \subsection{Handling Multiple Scales}
 
-Let's start with an example. \Cref{fig:eval-align-scale} shows 3 different OCR output bounding-boxes of various scales (in 3 different colors other than black) and their assigned ground-truth audio segments. The ground-truth bounding-boxes (\texttt{BBoxGroup} objects) and their matching audio segments (\texttt{TIntervalGroup} objects) are shown in black. 
+The example in \Cref{fig:eval-align-scale} shows 3 different OCR output bounding-boxes of various scales (in 3 different colors other than black) and their assigned ground-truth audio segments. The ground-truth bounding-boxes (\texttt{BBoxGroup} objects) and their matching audio segments (\texttt{TIntervalGroup} objects) are shown in black. 
 
 \begin{figure}[!tb]
     \centering
@@ -79,7 +79,7 @@ Let's start with an example. \Cref{fig:eval-align-scale} shows 3 different OCR o
     \label{fig:eval-align-scale}
 \end{figure}
 
-It's clear that the number of assigned ground-truth audio segments generally increases with the bounding-box scale. For example in \Cref{fig:eval-align-scale}, the yellow bounding-box encloses only the first \texttt{BBoxGroup} object and is assigned just the first ground-truth audio segment, while the red bounding-box includes all the \texttt{BBoxGroup} objects so it is assigned all three audio segments.
+It is clear that the number of assigned ground-truth audio segments generally increases with the bounding-box scale. For example in \Cref{fig:eval-align-scale}, the yellow bounding-box encloses only the first \texttt{BBoxGroup} object and is assigned just the first ground-truth audio segment, while the red bounding-box includes all the \texttt{BBoxGroup} objects so it is assigned all three audio segments.
 
 However, a ground-truth \texttt{BBoxGroup} object may not necessarily be perfectly enclosed in an OCR output bounding-box. Often the ground-truth bounding-box is partially enclosed by multiple OCR bounding-boxes, in which case we need to decide which OCR bounding-box the ground-truth bounding-box belongs to.
 

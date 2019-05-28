@@ -89,7 +89,7 @@ A \texttt{Match} object simply represents a single match in the alignment result
 
 A \texttt{Matches} object is a collection of multiple \texttt{Match} objects. This class also inherits from the Python built-in \texttt{list} class. In the actual implementation, the final alignment result is a \texttt{Matches} object. \Cref{fig:elem-matches} shows the relationships between different classes, starting from a \texttt{Matches} object.
 
-\begin{figure}[t]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.9\textwidth]{elem-matches.eps}
     \caption{Relationships between different classes inside a \texttt{Matches} object}
@@ -100,7 +100,7 @@ A \texttt{Matches} object is a collection of multiple \texttt{Match} objects. Th
 
 We shall now revisit the system architecture based on the knowledge of the basic element definitions. \Cref{fig:elem-sys-diagram} shows the updated diagram labelled with the defined classes of the basic elements.
 
-\begin{figure}[!hb]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.95\textwidth]{elem-sys-diagram.eps}
     \caption{Basic elements as inputs / outputs within the system}

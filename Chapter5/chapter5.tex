@@ -59,7 +59,7 @@ Usually when comparing two sequences, we care about the total weight (or score) 
     \mathcal{F}(x,y) & \text{\quad substitute } x \text{ with } y
   \end{cases}
 \]
-In the alignment of DNA sequences, it's common to assign positive scores for matches (same symbols) and negative scores for mismatches (insertions, deletions, substitutions with different symbols). If we define $\mathcal{F}(x,y)$ to be +1 if $x$ = $y$ and -1 otherwise, the total weight (or score) $\mathcal{W}$ can be calculated as:
+In the alignment of DNA sequences, it is common to assign positive scores for matches (same symbols) and negative scores for mismatches (insertions, deletions, substitutions with different symbols). If we define $\mathcal{F}(x,y)$ to be +1 if $x$ = $y$ and -1 otherwise, the total weight (or score) $\mathcal{W}$ can be calculated as:
 \[ \mathcal{W}(Z) = + 1 - 1 + 1 + 1 - 1 - 1 + 1 - 1 = 0 \]
 
 \section{Alignment in the System}
@@ -76,7 +76,7 @@ We can now define our Joint Weight Function $\mathcal{F}$. For the baseline alig
   \end{cases}
   \label{eq:jwf-baseline}
 \end{equation}
-The optimal alignment $Z_{opt}$ could then be found with JWF \Cref{eq:jwf-baseline}.
+The optimal alignment $Z_{opt}$ could then be found with the JWF in \Cref{eq:jwf-baseline}.
 
 As a next step, we should notice that each word in $X$ links to a unique chunk ID in the handout and each word in $Y$ is associated with a starting timestamp in the audio file. These information can be combined with the optimal alignment of $X$ and $Y$ to assign a time interval to each chunk of the handout.
 
@@ -100,7 +100,7 @@ Note that this strategy is based on the assumption that the time spent on explai
 
 Clearly the joint weight function can do more than just finding the longest common subsequence (\Cref{eq:jwf-baseline}) of two sequences. In this section we will discuss how the JWF could be extended in various ways.
 
-\subsection{Adding Time Constraints}
+\subsection{Adding Time Constraint}
 \label{subsec:time-constraint}
 
 Based on the assumptions that the lecturers will read the handouts in the strictly sequential order and that the amount of time spent on explaining a specific handout chunk is roughly proportional to the number of words in that chunk, we would expect that for any single match in the optimal alignment $Z_{opt}$, the difference between the relative position of the matching word in the handout and the relative position of the matching word in the audio file should be relatively small. 
@@ -123,7 +123,7 @@ we have removed the preceding normalising term of the Gaussian since it won't af
 \subsection{Penalising Common-word Matches}
 \label{subsec:common-word-penalty}
 
-In an alignment, matches of common words like `a', `the' and `it' should be less valuable than matches of other kinds of words. The Oxford Corpus have listed 100 most commonly used English words \cite{oec-common-words} based on the word frequencies in the corpus. Define the following function $\mathcal{C}(x)$ with a parameter $\alpha_c > 0$:
+In an alignment, matches of common words like `a', `the' and `it' should be assigned less weight than matches of other kinds of words. The Oxford Corpus have listed 100 most commonly used English words \cite{oec-common-words} based on the word frequencies in the corpus. Define the following function $\mathcal{C}(x)$ with a parameter $\alpha_c > 0$:
 \begin{equation}
   \mathcal{C}(x) = 
   \begin{cases}
@@ -131,7 +131,7 @@ In an alignment, matches of common words like `a', `the' and `it' should be less
     1 & \text{otherwise}
   \end{cases}
 \end{equation}
-Clearly $\alpha_c$ should be less than 1 in order to penalise common-word matches. Combine this function with \Cref{eq:jwf-gauss} yields the final JWF in the alignment algorithm:
+Clearly $\alpha_c$ should be less than 1 in order to penalise common-word matches. Combining this function with \Cref{eq:jwf-gauss} yields the final JWF in the alignment algorithm:
 \begin{equation}
   \mathcal{F}(x,y) = 
   \begin{cases}
@@ -141,3 +141,10 @@ Clearly $\alpha_c$ should be less than 1 in order to penalise common-word matche
   \label{eq:jwf-final}
 \end{equation}
 note that the final $\mathcal{F}(x,y)$ has two adjustable parameters $\sigma_t$ and $\alpha_c$.
+
+
+\nomenclature[z-JWF]{JWF}{Joint Weight Function}
+\nomenclature[g-nullsymb]{$\phi$}{null symbol in sequence alignment}
+\nomenclature[x-jwf]{$\mathcal{F}(x,y)$}{joint weight function with input symbols $x$ and $y$}
+\nomenclature[x-sigma]{$\sigma_t$}{Gaussian standard deviation for adding time constraint}
+\nomenclature[x-alpha]{$\alpha_c$}{coefficient for penalising common-word matches}
