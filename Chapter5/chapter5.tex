@@ -98,6 +98,7 @@ Note that this strategy is based on the assumption that the time spent on explai
 Clearly the joint weight function can do more than just finding the longest common subsequence (\Cref{eq:jwf-baseline}) of two sequences. In this section we will discuss how the JWF could be extended in various ways.
 
 \subsection{Adding Time Constraints}
+\label{subsec:time-constraint}
 
 Based on the assumptions that the lecturers will read the handouts in the strictly sequential order and that the amount of time spent on explaining a specific handout chunk is roughly proportional to the number of words in that chunk, we would expect that for any single match in the optimal alignment $Z_{opt}$, the difference between the relative position of the matching word in the handout and the relative position of the matching word in the audio file should be relatively small. 
 
@@ -117,6 +118,7 @@ In the alignment algorithm, we would like to penalise large values of $\mathcal{
 we have removed the preceding normalising term of the Gaussian since it won't affect the optimal alignment. The Gaussian function decays when $\mathcal{D}(x,y)$ increases, which automatically penalises matches with large differences in relative positions.
 
 \subsection{Penalising Common-word Matches}
+\label{subsec:common-word-penalty}
 
 In an alignment, matches of common words like `a', `the' and `it' should be less valuable than matches of other kinds of words. The Oxford Corpus have listed 100 most commonly used English words \cite{oec-common-words} based on the word frequencies in the corpus. Define the following function $\mathcal{C}(x)$ with a parameter $\alpha_c > 0$:
 \begin{equation}

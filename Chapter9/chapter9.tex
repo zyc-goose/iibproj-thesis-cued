@@ -1,0 +1,153 @@
+%!TEX root = ../thesis.tex
+
+%%%%% Chapter: Software Setup %%%%%
+\chapter{Evaluation Results}
+\label{chap:eval-results}
+
+\ifpdf
+    \graphicspath{{Chapter9/Figs/Raster/}{Chapter9/Figs/PDF/}{Chapter9/Figs/}}
+\else
+    \graphicspath{{Chapter9/Figs/Vector/}{Chapter9/Figs/}}
+\fi
+
+
+\section{Overview}
+
+\begin{table}[!htb]
+    \caption{Adjustable System Parameters}
+    \centering
+    \label{tab:sys-param-list}
+    \begin{tabular}{l l c}
+    \toprule
+    Name & Description & Range \\
+    \midrule
+    OCR-scale & Scale of the OCR PLA & \{`word', `line', `paragraph', `page'\} \\
+    OCR-model & OCR model used for recognition & \{`\texttt{eng}', `\texttt{eng-9000}'\} \\
+    JWF-$\sigma_t$ & Gaussian STD for time constraint & (0, $\infty$) \\
+    JWF-$\alpha_c$ & Penalty for common words & (0, 1]\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+A number of parameters in the system can be adjusted. \Cref{tab:sys-param-list} lists all the adjustable system parameters. Evaluation can be performed on the system with various sets of parameters.
+
+Due to the time limitation and the high complexity of labelling the ground-truth data for lectures, only a single set of ground-truth data has been labelled for the system evaluation. The labelled ground-truth data corresponds to the first hour-long lecture of Part IA Math (2010) taught by Prof. Malcolm Smith.
+
+The methodology of evaluation is simple: starting from a set of baseline parameters, we try to adjust each parameter individually in turn and observe the effects. Then we combine the individual best parameters together to see the final results.
+
+\section{The Baseline System}
+
+The set of parameters of the baseline system is defined as:
+\begin{equation*}
+    \begin{cases}
+        \text{OCR-scale} &=\quad \text{`paragraph'} \\
+        \text{OCR-model} &=\quad \text{`\texttt{eng}'} \\
+        \text{JWF-}\sigma_t &=\quad \infty \\
+        \text{JWF-}\alpha_c &=\quad 1
+    \end{cases}
+\end{equation*}
+which provides a starting points for the system evaluation. \Cref{tab:eval-res-baseline} shows the initial evaluation results for the baseline system.
+
+\begin{table}[!tb]
+    \caption{Evaluation results for the baseline system}
+    \centering
+    \label{tab:eval-res-baseline}
+    \begin{tabular}{l c c c c c c c}
+    \toprule
+    \multirow{2}{*}{System} &
+    \multirow{2}{*}{TPR}& \multirow{2}{*}{TNR} & \multicolumn{4}{c}{OCR-WER} & \multirow{2}{*}{Align-Recall} \\
+    \cmidrule{4-7}
+    & & & All & I & D & S & \\
+    \midrule
+    \textbf{Baseline} &
+    90.04\% & 85.94\% & 48.15\% & 8.64\% &9.88\% &29.63\% &43.67\% \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Changing the OCR Scale}
+
+\begin{table}[!b]
+    \caption{Effect of changing OCR scale}
+    \centering
+    \label{tab:eval-res-scale}
+    \begin{tabular}{l c c c c}
+    \toprule
+    \multirow{2}{*}{Evaluation Metric}& \multicolumn{4}{c}{OCR-scale}\\
+    \cmidrule{2-5}
+    & word & line & paragraph & page \\
+    \midrule
+    OCR-TPR & 51.71\%&83.60\%&90.04\%&100.0\%\\
+    OCR-TNR & 98.09\%&92.71\%&85.94\%&1.51\%\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Changing the OCR scale only affects the values of TPR and TNR in the evaluation of OCR PLA. \Cref{tab:eval-res-scale} lists the evaluation results for the 4 different OCR scales. Clearly we can observe that there exists a tradeoff between TPR and TNR. The scales `line' and `paragraph' have decent perfomance in both TPR and TNR, which agrees with our common sense. The scales `word' and `page' are the two extremes of fine scale and coarse scale respectively.
+
+Notice that in theory the TNR value for scale = `page' should be zero since this scale generates a bounding-box which includes the whole page, and the true negative area equals to zero in this case. The discrepancy results from our assumption in \Cref{chap:eval-framework} that the OCR output bounding-boxes are non-overlapping (which is also the assumption in the code implementation), which in practice may overlap a little bit.
+
+\section{Changing the OCR Model}
+
+\begin{table}[!tb]
+    \caption{Effect of changing OCR model}
+    \centering
+    \label{tab:eval-res-ocr-model}
+    \begin{tabular}{l c c c c c}
+    \toprule
+    \multirow{2}{*}{OCR-model} &\multicolumn{4}{c}{OCR-WER} & \multirow{2}{*}{Align-Recall} \\
+    \cmidrule{2-5}
+     & All & I & D & S & \\
+    \midrule
+    \texttt{eng} & 48.15\%&8.64\%&9.88\%&29.63\%&43.67\%\\
+    \texttt{eng-9000} & 52.22\%&11.98\%&8.52\%&31.73\%&43.14\%\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Switching between OCR models won't affect TPR and TNR, but will affect the rest of the evaluation metrics. \Cref{tab:eval-res-ocr-model} shows the evaluation results for the two OCR models \texttt{eng} and \texttt{eng-9000}. Unfortunately the fine-tuned model \texttt{eng-9000} performs worse in both OCR-WER and the alignment recall rate.
+
+A possible reason for this is that the improvement of the fine-tuned model on handwritten text recognition is limited while its accuracy drop in recognising printed text has a significant impact on the OCR-WER and the eventual alignment recall rate. This also shows that the idea of improving the accuracy on handwritten text by fine-tuning the Tesseract model is hard and needs further investigation.
+
+\section{Changing the Time Constraint Parameter}
+
+\begin{table}[!b]
+    \caption{Effect of changing Gaussian STD $\sigma_t$}
+    \centering
+    \label{tab:eval-res-gauss}
+    \begin{tabular}{l c c c c}
+    \toprule
+    \multirow{2}{*}{Evaluation Metric} & \multicolumn{4}{c}{Gaussian STD $\sigma_t$} \\
+    \cmidrule{2-5}
+    & $\sigma_t$ = 0.01 & $\sigma_t$ = 1 & $\sigma_t$ = 5 & $\sigma_t$ = 100 \\
+    \midrule
+    Align-Recall & 28.54\%&34.06\%&45.15\%&45.15\%\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+As explained in \Cref{subsec:time-constraint}, the Gaussian standard deviation $\sigma_t$ is used to penalise large time differences in the alignment of sequences. The smaller the $\sigma_t$ (small STD value narrows the width of Gaussian), the stronger the penalty effect.
+
+The value of $\sigma_t$ only affects the alignment recall rate. \Cref{tab:eval-res-gauss} lists the results for different values of $\sigma_t$. Clearly we can see that too much penalty on time differences leads to poor alignment accuracy, and suitable values like $\sigma_t$ = 5 could improve the accuracy by a small amount. Also we shall notice that the accuracy converges to 45.15\% for larger $\sigma_t$, which may result from the convergence of the optimal alignment $Z_{opt}$.
+
+
+\section{Changing the Common-word Penalising Parameter}
+
+\begin{table}[!t]
+    \caption{Effect of changing Gaussian STD $\sigma_t$}
+    \centering
+    \label{tab:eval-res-gauss}
+    \begin{tabular}{l c c c c}
+    \toprule
+    \multirow{2}{*}{Evaluation Metric} & \multicolumn{4}{c}{Gaussian STD $\sigma_t$} \\
+    \cmidrule{2-5}
+    & $\sigma_t$ = 0.01 & $\sigma_t$ = 1 & $\sigma_t$ = 5 & $\sigma_t$ = 100 \\
+    \midrule
+    Align-Recall & 28.54\%&34.06\%&45.15\%&45.15\%\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+
+
+\nomenclature[z-STD]{STD}{Standard Deviation}

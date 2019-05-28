@@ -74,7 +74,9 @@ The GUI implementation visualises the core components in the system, including t
 
 \Cref{fig:gui-system} shows a screenshot of the `system' mode of the GUI. The users are able to select between the 4 OCR scales, 2 OCR models (\texttt{eng} and \texttt{eng-9000}) and they could also adjust the parameters $\sigma_t$ and $\alpha_c$ for the alignment algorithm. The resulting bounding-boxes are rendered in the left, and the corresponding alignment output audio segments (in blue) and the assigned ground-truth segments (in red) are shown in the audio visualiser to the right.
 
-Users can click any bounding-box in the left and listen to the lecture audio by clicking a specific position in the audio visualiser. The audio playback can be stopped by pressing spacebar. The evaluation results are listed in the bottom-right corner.
+Users can click any bounding-box in the left and listen to the lecture audio by clicking a specific position in the audio visualiser. The audio playback can be stopped by pressing spacebar. 
+
+The evaluation results are also listed in the bottom-right corner. The evaluation results in \Cref{chap:eval-results} are logged from this GUI listing.
 
 \subsection{\texttt{gui/labeller.py}}
 
