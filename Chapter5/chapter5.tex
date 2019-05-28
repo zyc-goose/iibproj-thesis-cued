@@ -28,7 +28,7 @@ Now define the \textit{Joint Weight Function}, $\mathcal{F}(\cdot,\cdot)$: $A^* 
 \begin{equation}
   Z_{opt} \,=\, \argmax_{Z} \mathcal{W}(Z) \,=\, \argmax_{Z} \sum_{i=1}^{p} \mathcal{F}(S_i,T_i)
 \end{equation}
-where $p$ denotes the length of $Z$ and may vary when $Z$ changes. The optimal alignment could be found by the \textit{Needleman-Wunsch Algorithm}~\cite{needleman1970general} with time complexity $O(nm)$.
+where $p$ denotes the length of $Z$ and may vary when $Z$ changes. The optimal alignment could be found by the \textit{Needleman-Wunsch Algorithm}~\cite{needleman1970general} with time and space complexity $O(nm)$.
 
 \section{Example: DNA Sequences}
 
@@ -60,6 +60,7 @@ In the alignment of DNA sequences, it's common to assign positive scores for mat
 \[ \mathcal{W}(Z) = + 1 - 1 + 1 + 1 - 1 - 1 + 1 - 1 = 0 \]
 
 \section{Alignment in the System}
+\label{sec:align-in-system}
 
 In our system, we need to find the alignment between chunks of the handout text and segments of the lecture audio file. As a first step, we define $X$ to be the sequence of extracted words in the handout and define $Y$ to be the sequence of transcribed words in the corresponding audio file.
 
@@ -132,6 +133,6 @@ Clearly $\alpha_c$ should be less than 1 in order to penalise common-word matche
     \mathcal{C}(x) \exp \left(-\frac{\mathcal{D}(x,y)}{2 \sigma_t^2}\right) & \text{if } x = y\\
     0 & \text{otherwise}
   \end{cases}
-  \label{eq:jwf-gauss}
+  \label{eq:jwf-final}
 \end{equation}
 note that the final $\mathcal{F}(x,y)$ has two adjustable parameters $\sigma_t$ and $\alpha_c$.
