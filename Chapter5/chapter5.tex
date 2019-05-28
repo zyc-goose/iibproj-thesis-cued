@@ -2,6 +2,7 @@
 
 %%%%% Chapter: System Architecture %%%%%
 \chapter{Alignment Algorithm}
+\label{chap:align}
 
 \ifpdf
     \graphicspath{{Chapter5/Figs/Raster/}{Chapter5/Figs/PDF/}{Chapter5/Figs/}}
@@ -11,6 +12,8 @@
 
 
 \section{Overview}
+
+The use of the \texttt{diff}-based alignment algorithm in the system is inspired by the work \cite{lanchantin2015development} which used a \texttt{diff}-based algorithm to align imperfect captions to audio of TV shows. In fact, the \texttt{diff} algorithm (which solves the LCS problem) is a subset of a more general mathematical formulation of the 2-sequence alignment problem, which will be explained in \Cref{sec:diff-formulation} with enough detail. After the discussion of the general formulation, we will explain how to adapt this formulation to the real alignment algorithm used in the system. 
 
 \section{General Formulation of Alignment Problems}
 \label{sec:diff-formulation}

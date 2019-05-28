@@ -98,14 +98,9 @@ A \texttt{Matches} object is a collection of multiple \texttt{Match} objects. Th
 
 \section{System Architecture Revisited}
 
-The following list summarises the relationships between the basic elements and the inputs / outputs within the system (also shown in \Cref{fig:elem-sys-diagram}):
-\begin{itemize}
-    \item \texttt{BBoxGroups}: OCR output / alignment input
-    \item \texttt{WStamps}: speech recogniser output / alignment input
-    \item \texttt{Matches}: alignment output
-\end{itemize}
+We shall now revisit the system architecture based on the knowledge of the basic element definitions. \Cref{fig:elem-sys-diagram} shows the updated diagram labelled with the defined classes of the basic elements.
 
-\begin{figure}[ht]
+\begin{figure}[!hb]
     \centering
     \includegraphics[width=0.95\textwidth]{elem-sys-diagram.eps}
     \caption{Basic elements as inputs / outputs within the system}

@@ -2,6 +2,7 @@
 
 %%%%% Chapter: Tesseract OCR %%%%%
 \chapter{Tesseract OCR}
+\label{chap:tess-ocr}
 
 \ifpdf
     \graphicspath{{Chapter4/Figs/Raster/}{Chapter4/Figs/PDF/}{Chapter4/Figs/}}
@@ -9,9 +10,11 @@
     \graphicspath{{Chapter4/Figs/Vector/}{Chapter4/Figs/}}
 \fi
 
-
 \section{Overview}
 
+In the system implementation, the Tesseract OCR engine is selected as the main tool which converts image data (handouts) to chunks of text. The Tesseract is able to do the Page Layout Analysis which identifies distinct chunks at 5 different scales. 
+
+The Tesseract also provides a set of command-line tools which allow us to fine-tune the existing models. In order to improve the accuracy on handwritten text recognition, the original Tesseract model \texttt{eng} has been fine-tuned with additional handwritten data and evaluated at various training iterations. The best model has been picked based on the evaluation results.
 
 \section{Multi-scale Page Layout Analysis}
 
@@ -46,7 +49,7 @@ Recall that the Page Layout Analysis of the Tesseract OCR engine is able to iden
 
 In the actual system implementation, the user would be able to choose 4 different scales: word, line, paragraph and page. The `block' scale is removed from the implementation since in practice the difference between the `block' scale and the `paragraph' scale is negligible (which can be seen from \Cref{fig:tess-pla-scales}), and we keep the `paragraph' scale since the name `paragraph' is less ambiguous than `block'. 
 
-We also keep the `page' scale in the system implementation for evaluation purposes described in later chapters, though this scale is not actually useful in practical use. The choice of PLA scale is considered to be one of the system hyperparameters.
+We also keep the `page' scale in the system implementation for evaluation purposes described in later chapters, though this scale is not actually useful in practical use. The choice of PLA scale is considered to be one of the adjustable system parameters.
 
 \section{Training Tesseract with Handwritten Data}
 

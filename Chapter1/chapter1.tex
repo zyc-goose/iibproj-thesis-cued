@@ -69,10 +69,10 @@ Unfortunately, few work has been done in designing and implementing such a syste
 This project aims to investigate the feasibility of the idea `talking handouts' by designing, implementing and evaluating a minimum working software system which automatically computes the alignment (or mappings) between the chunks of handouts and the segments of the corresponding lecture recordings. Here we use the word `chunk' to denote a block of meaningful information in the handouts, and use the word `segment' to denote an interval with a starting time and an ending time in the lecture recordings. The wording `chunk' and `segment' will be used throughout the report.
 
 % first subtask
-An important subtask of the project is to investigate methods of dividing the handouts into smaller chunks of information (at different scales) and extracting meaningful text from these chunks. A direct solution to this subtask is to use an OCR engine, which is adopted in the system design and further discussed in \textcolor{red}{these chapters}.
+The first major of the project is to investigate methods of dividing the handouts into smaller chunks of information (at different scales) and extracting meaningful text from these chunks. A direct solution to this subtask is to use an OCR engine, which is adopted in the system design and further discussed in \Cref{chap:sys-architecture} and \Cref{chap:tess-ocr}.
 
 % second subtask
-Another important subtask of the project is to investigate speech-recognition based algorithms of aligning chunks of handouts with segments of lecture recordings. `Speech-recognition based' means that the lecture recordings are first fed into a speech recogniser and we use the output of the recogniser as one of the inputs of the alignment algorithm (the other input is the chunks of extracted handout text). The final system uses a \texttt{diff}-based alignment algorithm which is discussed in detail in \textcolor{red}{these chapters}.
+The second major subtask of the project is to investigate speech-recognition based algorithms of aligning chunks of handouts with segments of lecture recordings. `Speech-recognition based' means that the lecture recordings are first fed into a speech recogniser and we use the output of the recogniser as one of the inputs of the alignment algorithm (the other input is the chunks of extracted handout text). The final system uses a \texttt{diff}-based alignment algorithm which is discussed in detail in \Cref{chap:sys-architecture} and \Cref{chap:tess-ocr}.
 
 % some assumptions
 It would be worth mentioning that the project will only focus on handouts with filled-in handwritten notes (discussed in the first paragraph of \Cref{sec:intro-background}), since handouts of this type are fundamental to the CUED teaching (especially for Part IA and IB) and they also contain handwritten information which is interesting to investigate. 
@@ -83,16 +83,16 @@ In addition, the expression `speech-recognition based' in the second subtask has
 %%% Report Structure %%%
 \section{Report Structure}
 
-\begin{description}
-\item[Chapter 2] is dull
-\item[Chapter 3] is dull
-\item[Chapter 4] is dull
-\item[Chapter 5] is dull
-\item[Chapter 6] is dull
-\item[Chapter 7] is dull
-\item[Chapter 8] is dull
-\item[Chapter 9] is dull
-\item[Chapter 10] is dull
+\begin{description}[leftmargin=5.5em,labelwidth=5em]
+\item[Chapter 2] explains the basic assumptions on the system inputs and output
+\item[Chapter 3] explains the design of the system architecture based on the basic assumptions in \Cref{chap:basic-assumptions} and briefly introduces the involved subsystems 
+\item[Chapter 4] explains the Tesseract OCR engine with more detail, including the PLA and the training process
+\item[Chapter 5] explains the mathematical formulation of the sequence alignment problem and how this is adapted to the actual alignment algorithm used in the system
+\item[Chapter 6] explains the basic elements which support the operation of the system
+\item[Chapter 7] explains how the system is evaluated
+\item[Chapter 8] briefly introduces the setup of the actual software implementation
+\item[Chapter 9] evaluates the system using the methodologies explained in \Cref{chap:eval-framework}
+\item[Chapter 10] concludes the main findings and suggests possible future work
 \end{description}
 
 

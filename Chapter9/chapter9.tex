@@ -79,13 +79,14 @@ which provides a starting points for the system evaluation. \Cref{tab:eval-res-b
     \midrule
     OCR-TPR & 51.71\%&83.60\%&90.04\%&100.0\%\\
     OCR-TNR & 98.09\%&92.71\%&85.94\%&1.51\%\\
+    Align-Recall&7.24\%&33.17\%&43.67\%&82.85\%\\
     \bottomrule
     \end{tabular}
 \end{table}
 
-Changing the OCR scale only affects the values of TPR and TNR in the evaluation of OCR PLA. \Cref{tab:eval-res-scale} lists the evaluation results for the 4 different OCR scales. Clearly we can observe that there exists a tradeoff between TPR and TNR. The scales `line' and `paragraph' have decent perfomance in both TPR and TNR, which agrees with our common sense. The scales `word' and `page' are the two extremes of fine scale and coarse scale respectively.
+Changing the OCR scale affects all the metrics except the WER. \Cref{tab:eval-res-scale} lists the evaluation results for the 4 different OCR scales. Clearly a tradeoff exists when changing the OCR scale: coarse scales have high alignment accuracy and TPR but very low TNR; fine scales have low alignment accuracy and TPR but high TNR.
 
-Notice that in theory the TNR value for scale = `page' should be zero since this scale generates a bounding-box which includes the whole page, and the true negative area equals to zero in this case. The discrepancy results from our assumption in \Cref{chap:eval-framework} that the OCR output bounding-boxes are non-overlapping (which is also the assumption in the code implementation), which in practice may overlap a little bit.
+In practice, extremely coarse scales like `page' won't be useful for students who want to find the audio segments correspond to a short sentence, although these scales have very high alignment accuracy. Therefore, we actually have a tradeoff between the spatial resolution with respect to the handouts and the accuracy of alignment. The spatial resolution is partially reflected by the TNR.
 
 \section{Changing the OCR Model}
 

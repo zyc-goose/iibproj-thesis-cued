@@ -13,6 +13,8 @@
 
 \section{Overview}
 
+For the purpose of monitoring the system performance, an evaluation framework has been designed and implemented in this project. Methodologies for evaluating the OCR engine and the alignment algorithm are described in the following sections. Note that the evaluation for the speech recogniser has not been included in the framework since it's not the focus of the project. The evaluation framework also requires the ground-truth data to be provided.
+
 \section{The Ground-Truth Data}
 
 The ground-truth (GT) data of a single set of input lecture data (a handout PDF file + its associated audio file) can be seen as the correct mappings from the handout chunks (\texttt{BBoxGroup} objects) to the corresponding parts of the audio file (\texttt{TIntervalGroup} objects). The ground truth data as a whole can be represented by a \texttt{Matches} object described in \Cref{sec:basic-elem-matches}.
