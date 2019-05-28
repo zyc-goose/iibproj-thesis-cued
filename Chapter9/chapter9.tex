@@ -115,39 +115,54 @@ A possible reason for this is that the improvement of the fine-tuned model on ha
     \caption{Effect of changing Gaussian STD $\sigma_t$}
     \centering
     \label{tab:eval-res-gauss}
-    \begin{tabular}{l c c c c}
+    \begin{tabular}{l c c c c c}
     \toprule
-    \multirow{2}{*}{Evaluation Metric} & \multicolumn{4}{c}{Gaussian STD $\sigma_t$} \\
-    \cmidrule{2-5}
-    & $\sigma_t$ = 0.01 & $\sigma_t$ = 1 & $\sigma_t$ = 5 & $\sigma_t$ = 100 \\
+    \multirow{2}{*}{Evaluation Metric} & \multicolumn{5}{c}{Gaussian STD $\sigma_t$} \\
+    \cmidrule{2-6}
+    & $\sigma_t$ = 0.01 & $\sigma_t$ = 1 & $\sigma_t$ = 5 & $\sigma_t$ = 100 & $\sigma_t = \infty$\\
     \midrule
-    Align-Recall & 28.54\%&34.06\%&45.15\%&45.15\%\\
+    Align-Recall & 28.54\%&34.06\%&45.15\%&45.15\%&\textbf{43.67\%}\\
     \bottomrule
     \end{tabular}
 \end{table}
 
 As explained in \Cref{subsec:time-constraint}, the Gaussian standard deviation $\sigma_t$ is used to penalise large time differences in the alignment of sequences. The smaller the $\sigma_t$ (small STD value narrows the width of Gaussian), the stronger the penalty effect.
 
-The value of $\sigma_t$ only affects the alignment recall rate. \Cref{tab:eval-res-gauss} lists the results for different values of $\sigma_t$. Clearly we can see that too much penalty on time differences leads to poor alignment accuracy, and suitable values like $\sigma_t$ = 5 could improve the accuracy by a small amount. Also we shall notice that the accuracy converges to 45.15\% for larger $\sigma_t$, which may result from the convergence of the optimal alignment $Z_{opt}$.
+The value of $\sigma_t$ only affects the alignment recall rate. \Cref{tab:eval-res-gauss} lists the results for different values of $\sigma_t$. Clearly we can see that too much penalty on time differences leads to poor alignment accuracy, and suitable values like $\sigma_t$ = 5 could improve the accuracy by a small amount. Also we shall notice that the accuracy converges to 45.15\% for larger finite values of $\sigma_t$, which may result from the convergence of the optimal alignment $Z_{opt}$.
 
 
 \section{Changing the Common-word Penalising Parameter}
 
 \begin{table}[!t]
-    \caption{Effect of changing Gaussian STD $\sigma_t$}
+    \caption{Effect of changing the common-word penalising parameter $\alpha_c$}
     \centering
-    \label{tab:eval-res-gauss}
-    \begin{tabular}{l c c c c}
+    \label{tab:eval-res-alpha}
+    \begin{tabular}{l c c c c c}
     \toprule
-    \multirow{2}{*}{Evaluation Metric} & \multicolumn{4}{c}{Gaussian STD $\sigma_t$} \\
-    \cmidrule{2-5}
-    & $\sigma_t$ = 0.01 & $\sigma_t$ = 1 & $\sigma_t$ = 5 & $\sigma_t$ = 100 \\
+    \multirow{2}{*}{Evaluation Metric} & \multicolumn{5}{c}{Common-word penalising parameter $\alpha_c$} \\
+    \cmidrule{2-6}
+    & $\alpha_c$ = 0.001 & $\alpha_c$ = 0.1 & $\alpha_c$ = 0.5 & $\alpha_c$ = 0.9 & $\alpha_c$ = 1\\
     \midrule
-    Align-Recall & 28.54\%&34.06\%&45.15\%&45.15\%\\
+    Align-Recall & 44.14\%&44.14\%&44.50\%&44.41\%&\textbf{43.67\%}\\
     \bottomrule
     \end{tabular}
 \end{table}
 
+As explained earlier in \Cref{subsec:common-word-penalty}, the final JWF used in the system scales the weights of common-word matches by a factor $\alpha_c$ (smaller than 1), which essentially penalises matches of simple words like `a' or `the'. 
 
+The results of varying $\alpha_c$ are tabulated in \Cref{tab:eval-res-alpha}. The penalising factor $\alpha_c$ generally improves the alignment accuracy by a small amount compared to the baseline case $\alpha_c$ = 1, with the optimal accuracy achieved at roughly $\alpha_c$ = 0.5.
+
+\section{Combining the Best Parameters}
+
+Now we collect the best parameters together:
+\begin{equation*}
+    \begin{cases}
+        \text{OCR-scale} &=\quad \text{`paragraph'} \\
+        \text{OCR-model} &=\quad \text{`\texttt{eng}'} \\
+        \text{JWF-}\sigma_t &=\quad 5 \\
+        \text{JWF-}\alpha_c &=\quad 0.5
+    \end{cases}
+\end{equation*}
+Notice that we have only updated $\sigma_t$ and $\alpha_c$ compared to the baseline parameters, and the set of the best parameters will only change the value of the alignment recall rate. The set of best parameters achieves an alignment recall rate of 46.67\%, compared to the baseline 43.67\%.
 
 \nomenclature[z-STD]{STD}{Standard Deviation}
