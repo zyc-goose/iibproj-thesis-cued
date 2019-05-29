@@ -1,5 +1,19 @@
 % ************************** Thesis Abstract *****************************
 % Use `abstract' as an option in the document class to print only the titlepage and the abstract.
 \begin{abstract}
-This is where you write your abstract ...
+
+Recently full lecture video recordings of major CUED Part IA and IB courses have been accessible to students online through the Panopto service which provides the lecture video playback service using a web-based interface. This has enabled students to revisit certain parts of the lecture video recordings.
+
+A common situation for students is that they may have difficulties understanding specific parts in the handouts and they would like to refer back to lecturers' explanations to these parts. In general they would have to search through the videos in order to find the correct parts of their interest, which would generally cost a relatively long time. 
+
+This thesis aims to address this issue by building a software system that provides direct links from the chunks of the handouts to the corresponding parts of the lecture recordings. Basic assumptions on these handouts and lecture recordings are made first, and a minimum working system architecture is designed and implemented based on these assumptions. A dedicated evaluation framework is developed in order to measure the overall system performance. A GUI is also implemented to visualise the core components in the software system.
+
+The system architecture consists of three main subsystems: the OCR engine, the speech recogniser and the alignment algorithm. This project only focuses on the investigations of the OCR engine and the alignment algorithm. The selected OCR engine is the Tesseract OCR which is an open-source tool sponsored by Google, and the alignment algorithm is based on the algorithm of the Unix command-line program \texttt{diff}.
+
+The Tesseract OCR engine is able to perform the page layout analysis (PLA) which identifies the distinct bounding-boxes at 5 different scales. The engine could also be retrained or fine-tuned with external data. Based on the evaluation results, the alignment accuracy decreases with finer PLA scales, and the model fine-tuned with additional handwritten data actually performs worse than its original model.
+
+The design of the alignment algorithm begins with the idea of \texttt{diff}. A more general mathematical formulation of the sequence alignment problem is then proposed and it could be proven that the \texttt{diff} algorithm is in fact a subset of this formulation. Additional constraints are added to the final alignment algorithm based on the formulation, which have eventually improved the overall accuracy compared to the baseline \texttt{diff} algorithm.
+
+The actual experience of using the software system as a handout-to-audio alignment tool is in fact satisfactory, despite the fact that the numbers appeared in the evaluation results do not seem to be high. For a suitable OCR scale, the alignment system could match each chunk in the handout to roughly the right place in the lecture audio file. The idea of aligning chunks of the handout with segments of the lecture audio file is eventually regarded as feasible, considering that the current working system is of low complexity and a more sophisticated system could achieve even better alignment accuracy.
+
 \end{abstract}
